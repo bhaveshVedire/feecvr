@@ -1,11 +1,10 @@
-
 $(document).ready(function(){
-    let images = document.getElementsByClassName("image");
+    let cards = document.getElementsByClassName("card");
     let spinners = document.getElementsByClassName("fa-spin");
     let i = 0;
     let thirdPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            images[i].style.display = "block";
+            cards[i].style.display = "block";
             spinners[i].style.display = "none";
             ++i;
             resolve("Success");
@@ -14,7 +13,7 @@ $(document).ready(function(){
 
     let secondPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            images[i].style.display = "block";
+            cards[i].style.display = "block";
             spinners[i].style.display = "none";
             ++i;
             resolve(thirdPromise);
@@ -23,7 +22,7 @@ $(document).ready(function(){
 
     let firstPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            images[i].style.display = "block";
+            cards[i].style.display = "block";
             spinners[i].style.display = "none";
             ++i;
             resolve(secondPromise);
@@ -32,7 +31,7 @@ $(document).ready(function(){
     
 
     firstPromise.then().then().then(() => {
-        console.log("Loaded Images Successfully");
+        console.log("Loaded Cards Successfully");
     }).catch();
 
 });
